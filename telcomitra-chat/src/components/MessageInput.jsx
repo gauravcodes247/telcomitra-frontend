@@ -1,0 +1,48 @@
+import { useState } from "react";
+import { IoSend } from "react-icons/io5";
+
+function MessageInput({ onSend, loading = false }) {
+  const [text, setText] = useState("");
+
+  const handleSubmit = () => {
+    const message = text.trim();
+
+    if (!message) return;
+
+    onSend(message);
+    setText("");
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleSubmit();
+    }
+  };
+
+  return (
+    <div className="border-t border-gray-200 p-3">
+      <div className="flex items-center gap-2">
+        <input
+          type="text"
+          placeholder="Type your message..."
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          onKeyDown={handleKeyDown}
+          disabled={loading}
+          className="flex-1 rounded-full border border-gray-300 px-4 py-2 outline-none focus:border-blue-500"
+        />
+
+        <button
+          onClick={handleSubmit}
+          disabled={loading}
+          className="rounded-full bg-blue-600 p-3 text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          <IoSend />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default MessageInput;
