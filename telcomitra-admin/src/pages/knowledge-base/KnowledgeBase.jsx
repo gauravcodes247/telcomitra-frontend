@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import KnowledgeBaseTable from "../../components/knowledge-base/KnowledgeBaseTable";
 import { useState } from "react";
 import AddFAQModal from "../../components/forms/AddFAQModal";
+import { getFAQs } from "../../services/knowledgebaseservices";
 const KnowledgeBase = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [faqs, setFaqs] = useState([]);
+  const fetchFAQs = async () => {
+    try {
+      const data = await getFAQs();
+      console.log(data);
+      setFaqs(data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  useEffect(() => {
+    fetchFAQs();
+  }, []);
 
   return (
     <div className="flex flex-col gap-5">
@@ -27,7 +41,7 @@ active:scale-95"
           + ADD FAQ
         </button>
       </div>
-      <KnowledgeBaseTable></KnowledgeBaseTable>
+      <KnowledgeBaseTable data={faqs}></KnowledgeBaseTable>
       <AddFAQModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
