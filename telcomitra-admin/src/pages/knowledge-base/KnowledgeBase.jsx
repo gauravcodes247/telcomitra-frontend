@@ -1,6 +1,10 @@
 import React from "react";
 import KnowledgeBaseTable from "../../components/knowledge-base/KnowledgeBaseTable";
+import { useState } from "react";
+import AddFAQModal from "../../components/forms/AddFAQModal";
 const KnowledgeBase = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="flex flex-col gap-5">
       <div className="flex justify-between">
@@ -18,11 +22,13 @@ rounded-lg bg-green-600 text-white font-medium transition-all duration-200
 hover:bg-green-700
 hover:shadow-lg
 active:scale-95"
+          onClick={() => setIsModalOpen(true)}
         >
           + ADD FAQ
         </button>
       </div>
       <KnowledgeBaseTable></KnowledgeBaseTable>
+      <AddFAQModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };
