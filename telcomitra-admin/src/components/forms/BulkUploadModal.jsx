@@ -10,20 +10,25 @@ import {
 } from "lucide-react";
 const BulkUploadModal = ({ isOpen, onClose, onUploadSuccess }) => {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [isUploading, setIsUploading] = useState(false);
   const handleFileChange = (e) => {
     setSelectedFile(e.target.files[0]);
   };
   const handleUpload = async () => {
     try {
+      setIsUploading(true);
       const response = await uploadFAQs(selectedFile);
-      onClose();
-      onUploadSuccess();
+
+      await onUploadSuccess();
       toast.success(response.message);
+      onClose();
       setSelectedFile(null);
       console.log(response);
     } catch (e) {
       console.log(e);
       toast.error("Upload Failed");
+    } finally {
+      setIsUploading(false);
     }
   };
   if (!isOpen) return null;
@@ -75,6 +80,7 @@ const BulkUploadModal = ({ isOpen, onClose, onUploadSuccess }) => {
 
             <button
               onClick={handleUpload}
+              disabled={!selectedFile || isUploading}
               className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-green-600 px-4 py-3 font-medium text-white transition-all duration-200 hover:bg-green-700 active:scale-95"
             >
               <Upload size={18} />

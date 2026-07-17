@@ -12,11 +12,6 @@ export const SIDEBAR_ITEMS = [
     icon: BookOpen,
   },
   {
-    label: "Job Roles",
-    path: "/job-roles",
-    icon: Briefcase,
-  },
-  {
     label: "Settings",
     path: "/settings",
     icon: Settings,

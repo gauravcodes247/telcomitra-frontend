@@ -1,9 +1,9 @@
 import React from "react";
 import { X } from "lucide-react";
-import { useState } from "react";
-import { createFAQ } from "../../services/knowledgebaseservices";
+import { useState, useEffect } from "react";
+import { createFAQ, updateFAQ } from "../../services/knowledgebaseservices";
 
-const AddFAQModal = ({ isOpen, onClose }) => {
+const FAQModal = ({ isOpen, onClose, mode, faq, onUploadSuccess }) => {
   const INITIAL_FORM = {
     question: "",
     answer: "",
@@ -22,14 +22,34 @@ const AddFAQModal = ({ isOpen, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(formData);
-      await createFAQ(formData);
-      setFormData(INITIAL_FORM);
-      onClose();
+      if (mode == "add") {
+        await createFAQ(formData);
+        setFormData(INITIAL_FORM);
+        onClose();
+        onUploadSuccess();
+      } else {
+        await updateFAQ(faq.id, formData);
+        setFormData(INITIAL_FORM);
+        onClose();
+        onUploadSuccess();
+      }
     } catch (error) {
       console.log(error.response?.data);
     }
   };
+  useEffect(() => {
+    if (mode === "edit" && faq) {
+      setFormData({
+        question: faq.question,
+        answer: faq.answer,
+        keywords: faq.keywords,
+        category: faq.category,
+        is_active: faq.is_active,
+      });
+    } else {
+      setFormData(INITIAL_FORM);
+    }
+  }, [mode, faq]);
   if (!isOpen) return null;
 
   return (
@@ -38,10 +58,12 @@ const AddFAQModal = ({ isOpen, onClose }) => {
         {/* Header */}
         <div className="flex items-start justify-between">
           <div>
-            <h2 className="text-2xl font-semibold text-white">Add FAQ</h2>
+            <h2 className="text-2xl font-semibold text-white">
+              {mode === "add" ? "Add FAQ" : "Edit FAQ"}
+            </h2>
 
             <p className="mt-1 text-sm text-gray-400">
-              Create a new FAQ for the chatbot knowledge base.
+              {mode === "add" ? "Create FAQ" : "Edit existing FAQ"}
             </p>
           </div>
 
@@ -149,4 +171,4 @@ const AddFAQModal = ({ isOpen, onClose }) => {
   );
 };
 
-export default AddFAQModal;
+export default FAQModal;

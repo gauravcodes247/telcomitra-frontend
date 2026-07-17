@@ -19,7 +19,7 @@ function AppRoutes() {
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/knowledge-base" element={<KnowledgeBase />} />
-          <Route path="/job-roles" element={<JobRoles />} />
+
           <Route path="/chat-logs" element={<ChatLogs />} />
           <Route path="/settings" element={<Settings />} />
         </Route>

@@ -1,16 +1,8 @@
 import React from "react";
 import { SquarePen, Trash2 } from "lucide-react";
 import { formatDate } from "../../utils/dateUtils";
-const KnowledgeBaseTable = ({ data }) => {
-  // const data = [
-  //   {
-  //     id: 1,
-  //     question: "What is NSQF?",
-  //     category: "General",
-  //     status: true,
-  //     updated: "13 Jul 2026",
-  //   },
-  // ];
+
+const KnowledgeBaseTable = ({ data, onDelete, onEdit }) => {
   return (
     <div className="overflow-x-auto text-gray-400 w-full rounded-xl overflow-hidden">
       <table className="bg-gray-900 w-full">
@@ -47,8 +39,14 @@ const KnowledgeBaseTable = ({ data }) => {
               </td>
               <td className="px-6 py-4 text-left">
                 <div className="flex gap-3">
-                  <SquarePen className="hover:text-blue-400 cursor-pointer"></SquarePen>
-                  <Trash2 className="hover:text-red-400 cursor-pointer"></Trash2>
+                  <SquarePen
+                    className="hover:text-blue-400 cursor-pointer"
+                    onClick={() => onEdit(data)}
+                  ></SquarePen>
+                  <Trash2
+                    className="hover:text-red-400 cursor-pointer"
+                    onClick={() => onDelete(data)}
+                  ></Trash2>
                 </div>
               </td>
             </tr>
