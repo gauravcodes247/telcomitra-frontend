@@ -3,6 +3,7 @@ import ChatHeader from "./ChatHeader";
 import ChatMessages from "./ChatMessages/ChatMessages";
 import MessageInput from "./MessageInput";
 import useChat from "../hooks/useChat";
+import RaiseTicketBanner from "./ChatMessages/RaiseTicketBanner";
 const ChatWindow = ({ isOpen }) => {
   const { messages, loading, sendMessage } = useChat();
   if (!isOpen) return null;
@@ -34,7 +35,7 @@ const ChatWindow = ({ isOpen }) => {
     >
       <div className="flex h-full flex-col">
         <ChatHeader onClose={() => {}} />
-
+        <RaiseTicketBanner onClick={() => setIsTicketModalOpen(true)} />
         <ChatMessages messages={messages} />
         <MessageInput onSend={sendMessage} loading={loading} />
       </div>

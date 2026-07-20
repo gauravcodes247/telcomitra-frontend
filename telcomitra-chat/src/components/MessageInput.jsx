@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IoSend } from "react-icons/io5";
-
+import { theme } from "../constants/theme";
 function MessageInput({ onSend, loading = false }) {
   const [text, setText] = useState("");
 
@@ -30,13 +30,19 @@ function MessageInput({ onSend, loading = false }) {
           onChange={(e) => setText(e.target.value)}
           onKeyDown={handleKeyDown}
           disabled={loading}
-          className="flex-1 rounded-full border border-gray-300 px-4 py-2 outline-none focus:border-blue-500"
+          className="flex-1 rounded-full border border-gray-300 px-4 py-2 outline-none"
+          style={{
+            borderColor: theme.colors.primary,
+          }}
         />
 
         <button
           onClick={handleSubmit}
           disabled={loading}
-          className="rounded-full bg-blue-600 p-3 text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+          className="rounded-full p-3 text-white transition disabled:cursor-not-allowed disabled:opacity-50"
+          style={{
+            backgroundColor: theme.colors.primary,
+          }}
         >
           <IoSend />
         </button>
