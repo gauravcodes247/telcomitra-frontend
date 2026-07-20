@@ -6,21 +6,21 @@ const RaiseTicketBanner = ({ onClick }) => {
     <div
       className="mx-4 mt-3 rounded-xl border p-3"
       style={{
-        borderColor: `${theme.colors.secondary}33`,
-        backgroundColor: `${theme.colors.secondary}1A`,
+        borderColor: `${theme.colors.primary}30`,
+        backgroundColor: `${theme.colors.primary}10`,
       }}
     >
       <div className="flex items-start gap-3">
         <div
           className="rounded-full p-2"
           style={{
-            backgroundColor: `${theme.colors.secondary}33`,
+            backgroundColor: `${theme.colors.primary}20`,
           }}
         >
           <Ticket
             size={18}
             style={{
-              color: theme.colors.secondary,
+              color: theme.colors.primary,
             }}
           />
         </div>
@@ -29,7 +29,7 @@ const RaiseTicketBanner = ({ onClick }) => {
           <h3
             className="text-sm font-semibold"
             style={{
-              color: theme.colors.text,
+              color: theme.colors.primary,
             }}
           >
             Need Human Support?
@@ -48,7 +48,7 @@ const RaiseTicketBanner = ({ onClick }) => {
             onClick={onClick}
             className="mt-3 w-full rounded-lg px-3 py-2 text-sm font-medium text-white transition"
             style={{
-              backgroundColor: theme.colors.secondary,
+              backgroundColor: theme.colors.primary,
             }}
           >
             Raise a Ticket

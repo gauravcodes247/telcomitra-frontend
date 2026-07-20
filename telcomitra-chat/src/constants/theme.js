@@ -1,7 +1,7 @@
 export const theme = {
   colors: {
-    primary: "#2563EB",
-    primaryHover: "#1D4ED8",
+    primary: "#DA2F51",
+    primaryHover: "#C62847",
 
     secondary: "#22C55E",
     secondaryHover: "#16A34A",
@@ -15,7 +15,7 @@ export const theme = {
     border: "#E2E8F0",
 
     botBubble: "#F1F5F9",
-    userBubble: "#2563EB",
+    userBubble: "#DA2F51",
 
     success: "#16A34A",
     warning: "#F59E0B",
