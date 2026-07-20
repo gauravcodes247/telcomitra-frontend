@@ -7,6 +7,7 @@ import KnowledgeBase from "../pages/knowledge-base/KnowledgeBase";
 import JobRoles from "../pages/job-roles/JobRoles";
 import ChatLogs from "../pages/chat-logs/ChatLogs";
 import Settings from "../pages/Settings/Settings";
+import Tickets from "../pages/tickets/Tickets";
 
 function AppRoutes() {
   return (
@@ -22,6 +23,7 @@ function AppRoutes() {
 
           <Route path="/chat-logs" element={<ChatLogs />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/tickets" element={<Tickets />} />
         </Route>
         {/* 404 */}
         <Route path="*" element={<h1>404 - Page Not Found</h1>} />

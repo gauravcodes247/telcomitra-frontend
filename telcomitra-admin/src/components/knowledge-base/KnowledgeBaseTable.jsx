@@ -34,6 +34,8 @@ const KnowledgeBaseTable = ({ data, onDelete, onEdit }) => {
                   </span>
                 )}
               </td>
+
+              
               <td className="px-6 py-4 text-left">
                 {formatDate(data.updated_at)}
               </td>

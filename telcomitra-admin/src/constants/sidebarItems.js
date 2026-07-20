@@ -1,4 +1,10 @@
-import { LayoutDashboard, BookOpen, Briefcase, Settings } from "lucide-react";
+import {
+  LayoutDashboard,
+  BookOpen,
+  Briefcase,
+  Settings,
+  Ticket,
+} from "lucide-react";
 
 export const SIDEBAR_ITEMS = [
   {
@@ -10,6 +16,11 @@ export const SIDEBAR_ITEMS = [
     label: "Knowledge Base",
     path: "/knowledge-base",
     icon: BookOpen,
+  },
+  {
+    label: "Tickets",
+    path: "/tickets",
+    icon: Ticket,
   },
   {
     label: "Settings",

@@ -17,7 +17,6 @@ const KnowledgeBase = () => {
   const fetchFAQs = async () => {
     try {
       const data = await getFAQs();
-      console.log(data);
       setFaqs(data);
     } catch (e) {
       console.log(e);
