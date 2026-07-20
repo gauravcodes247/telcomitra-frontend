@@ -38,8 +38,11 @@ const ChatHeader = ({ onClose }) => {
 
       {/* Right Section */}
       <button
-        onClick={onClose}
-        className="rounded-full p-2 transition hover:bg-blue-700"
+        onClick={() => {
+          console.log("Close clicked");
+          onClose?.();
+        }}
+        className="rounded-full p-2 transition cursor-pointer"
       >
         <IoClose size={22} />
       </button>

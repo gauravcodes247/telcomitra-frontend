@@ -4,8 +4,11 @@ import ChatMessages from "./ChatMessages/ChatMessages";
 import MessageInput from "./MessageInput";
 import useChat from "../hooks/useChat";
 import RaiseTicketBanner from "./ChatMessages/RaiseTicketBanner";
-const ChatWindow = ({ isOpen }) => {
+import { useState } from "react";
+import RaiseTicketModal from "./form/RaiseTicketModal";
+const ChatWindow = ({ isOpen, onClose }) => {
   const { messages, loading, sendMessage } = useChat();
+  const [isTicketModalOpen, setIsTicketModalOpen] = useState(false);
   if (!isOpen) return null;
   return (
     <div
@@ -34,10 +37,14 @@ const ChatWindow = ({ isOpen }) => {
         }`}
     >
       <div className="flex h-full flex-col">
-        <ChatHeader onClose={() => {}} />
+        <ChatHeader onClose={onClose} />
         <RaiseTicketBanner onClick={() => setIsTicketModalOpen(true)} />
         <ChatMessages messages={messages} />
         <MessageInput onSend={sendMessage} loading={loading} />
+        <RaiseTicketModal
+          isOpen={isTicketModalOpen}
+          onClose={() => setIsTicketModalOpen(false)}
+        ></RaiseTicketModal>
       </div>
     </div>
   );
