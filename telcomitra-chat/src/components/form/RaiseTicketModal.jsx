@@ -94,7 +94,7 @@ function RaiseTicketModal({ isOpen, onClose }) {
 
             <input
               type="text"
-              name="text"
+              name="name"
               placeholder="John Doe"
               value={formData.name}
               onChange={handleChange}
@@ -124,7 +124,7 @@ function RaiseTicketModal({ isOpen, onClose }) {
 
             <input
               type="text"
-              name="text"
+              name="phone"
               placeholder="+91 XXXXX XXXXX"
               value={formData.phone}
               onChange={handleChange}
@@ -139,7 +139,7 @@ function RaiseTicketModal({ isOpen, onClose }) {
 
             <input
               type="text"
-              name="text"
+              name="subject"
               placeholder="Enter subject"
               value={formData.subject}
               onChange={handleChange}
