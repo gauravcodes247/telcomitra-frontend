@@ -17,8 +17,8 @@ const ChatWindow = ({ isOpen, onClose }) => {
         right-6
         z-40
 
-        h-150
-        w-75
+        h-[min(600px,75vh)]
+        w-[min(300px,90vw)]
 
         rounded-2xl
         border border-gray-200
