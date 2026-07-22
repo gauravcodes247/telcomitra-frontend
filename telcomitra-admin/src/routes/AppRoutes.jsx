@@ -6,7 +6,7 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 import KnowledgeBase from "../pages/knowledge-base/KnowledgeBase";
 import JobRoles from "../pages/job-roles/JobRoles";
 import ChatLogs from "../pages/chat-logs/ChatLogs";
-import Settings from "../pages/Settings/Settings";
+
 import Tickets from "../pages/tickets/Tickets";
 
 function AppRoutes() {
@@ -22,7 +22,7 @@ function AppRoutes() {
           <Route path="/knowledge-base" element={<KnowledgeBase />} />
 
           <Route path="/chat-logs" element={<ChatLogs />} />
-          <Route path="/settings" element={<Settings />} />
+
           <Route path="/tickets" element={<Tickets />} />
         </Route>
         {/* 404 */}
