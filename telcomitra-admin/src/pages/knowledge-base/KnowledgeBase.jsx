@@ -3,9 +3,9 @@ import KnowledgeBaseTable from "../../components/knowledge-base/KnowledgeBaseTab
 import { useState } from "react";
 import FAQModal from "../../components/forms/FAQModal";
 import BulkUploadModal from "../../components/forms/BulkUploadModal";
-import { getFAQs } from "../../services/knowledgebaseservices";
+import { getFAQs } from "../../services/knowledgeBaseServices";
 import DeleteFAQModal from "../../components/forms/DeleteFAQModal";
-import { deleteFAQ } from "../../services/knowledgebaseservices";
+import { deleteFAQ } from "../../services/knowledgeBaseServices";
 import { toast } from "sonner";
 const KnowledgeBase = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
