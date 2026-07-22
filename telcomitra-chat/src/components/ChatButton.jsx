@@ -9,7 +9,7 @@ function ChatButton({ isOpen, onToggle }) {
         backgroundColor: theme.colors.primary,
       }}
     >
-      {isOpen ? "✕" : <FaRobot size={30} />}
+      {isOpen ? "x" : <FaRobot size={30} />}
     </button>
   );
 }
