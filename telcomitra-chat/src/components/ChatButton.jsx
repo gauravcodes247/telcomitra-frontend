@@ -1,4 +1,4 @@
-import { IoChatbubbleEllipses } from "react-icons/io5";
+import { FaRobot } from "react-icons/io5";
 import { theme } from "../constants/theme";
 function ChatButton({ isOpen, onToggle }) {
   return (
@@ -9,7 +9,7 @@ function ChatButton({ isOpen, onToggle }) {
         backgroundColor: theme.colors.primary,
       }}
     >
-      {isOpen ? "✕" : <IoChatbubbleEllipses size={30} />}
+      {isOpen ? "✕" : <FaRobot size={30} />}
     </button>
   );
 }
