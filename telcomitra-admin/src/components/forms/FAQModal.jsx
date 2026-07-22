@@ -1,7 +1,7 @@
 import React from "react";
 import { X } from "lucide-react";
 import { useState, useEffect } from "react";
-import { createFAQ, updateFAQ } from "../../services/knowledgebaseservices";
+import { createFAQ, updateFAQ } from "../../services/knowledgeBaseServices";
 
 const FAQModal = ({ isOpen, onClose, mode, faq, onUploadSuccess }) => {
   const INITIAL_FORM = {

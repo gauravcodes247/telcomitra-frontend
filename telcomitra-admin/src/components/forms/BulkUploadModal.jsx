@@ -1,6 +1,6 @@
 import { X } from "lucide-react";
 import { useState } from "react";
-import { uploadFAQs } from "../../services/knowledgebaseservices";
+import { uploadFAQs } from "../../services/knowledgeBaseServices";
 import { toast } from "sonner";
 import {
   FileSpreadsheet,
