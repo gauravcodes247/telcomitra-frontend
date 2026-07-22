@@ -1,4 +1,4 @@
-import { FaRobot } from "react-icons/io5";
+import { FaRobot } from "react-icons/fa";
 import { theme } from "../constants/theme";
 function ChatButton({ isOpen, onToggle }) {
   return (
