@@ -1,7 +1,8 @@
 import { mountWidget } from "./widget";
 
-const root = document.getElementById("root");
+const container =
+  window.__TELCOMITRA_CONTAINER__ || document.getElementById("root");
 
-if (root) {
-  mountWidget(root);
+if (container) {
+  mountWidget(container);
 }
