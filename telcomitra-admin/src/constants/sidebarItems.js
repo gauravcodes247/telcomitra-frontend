@@ -22,9 +22,4 @@ export const SIDEBAR_ITEMS = [
     path: "/tickets",
     icon: Ticket,
   },
-  {
-    label: "Settings",
-    path: "/settings",
-    icon: Settings,
-  },
 ];
