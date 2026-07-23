@@ -6,7 +6,7 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 import KnowledgeBase from "../pages/knowledge-base/KnowledgeBase";
 import JobRoles from "../pages/job-roles/JobRoles";
 import ChatLogs from "../pages/chat-logs/ChatLogs";
-
+import ProtectedRoutes from "./ProtectedRoutes";
 import Tickets from "../pages/tickets/Tickets";
 
 function AppRoutes() {
@@ -17,7 +17,13 @@ function AppRoutes() {
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
         {/* Public Route */}
         <Route path="/login" element={<Login />} />
-        <Route element={<Layout />}>
+        <Route
+          element={
+            <ProtectedRoutes>
+              <Layout />
+            </ProtectedRoutes>
+          }
+        >
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/knowledge-base" element={<KnowledgeBase />} />
 
