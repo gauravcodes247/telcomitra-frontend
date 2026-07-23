@@ -1,8 +1,16 @@
 import React from "react";
 import { useState } from "react";
 import { ChevronDown, CircleUserRound, LogOut, User } from "lucide-react";
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 const ProfileDropdown = () => {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
   return (
     <div className="relative">
       <button
@@ -26,7 +34,10 @@ const ProfileDropdown = () => {
 
           <hr />
 
-          <button className="flex w-full items-center gap-3  rounded-b-xl px-4 py-3 text-red-600 hover:bg-red-900/20 transition-colors">
+          <button
+            className="flex w-full items-center gap-3  rounded-b-xl px-4 py-3 text-red-600 hover:bg-red-900/20 transition-colors"
+            onClick={handleLogout}
+          >
             <LogOut size={18} />
             <span>Logout</span>
           </button>
