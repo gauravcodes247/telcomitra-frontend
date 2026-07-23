@@ -35,7 +35,7 @@ const Login = () => {
           <p className="text-sm text-neutral-400">
             Don't have an account yet?{" "}
             <span className="text-white font-medium cursor-pointer">
-              Sign up
+              Contact IT team
             </span>
           </p>
           <form
