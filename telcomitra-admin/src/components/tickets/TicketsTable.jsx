@@ -46,10 +46,6 @@ const TicketsTable = ({ data, onView, onStatusChange }) => {
                     className="hover:text-blue-400 cursor-pointer"
                     onClick={() => onView(data.id)}
                   ></Eye>
-                  <Trash2
-                    className="hover:text-red-400 cursor-pointer"
-                    //onClick={() => onDelete(data)}
-                  ></Trash2>
                 </div>
               </td>
             </tr>
